@@ -35,7 +35,7 @@ const App = () => {
   return (
     <div className="h-screen text-white" style={{ backgroundColor: '#0A0D34' }}>
       <img src="https://i.ibb.co/WDSHdKy/background-R-M.png" alt="" />
-      {locationInfo && <Location { ...locationInfo } />}
+      {locationInfo && <Location {...locationInfo} />}
     </div>
   );
 };
