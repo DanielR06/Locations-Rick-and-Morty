@@ -6,7 +6,6 @@ import { getRandomNumber } from './utils/getRandomNumber';
 const App = () => {
   // useStage de el Numero random que va a la Url, la informacion la localizacion obtenida para la api
   const [locationInfo, setLocationInfo] = useState(null);
-  const [residentInfo, setResidentInfo] = useState(null)
   //url base de la api Rick and Morty
   const baseUrl = `https://rickandmortyapi.com/api/`;
 
@@ -20,22 +19,20 @@ const App = () => {
       console.log(error.message);
     }
   };
-  const getResident = async (urlCharacter) => {
-    try {
-      const res = await axios.get(urlCharacter);
-      setResidentInfo(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   useEffect(() => {
     loadLocationInfo();
   }, []);
 
   return (
-    <div className="h-screen text-white" style={{ backgroundColor: '#0A0D34' }}>
+    <div className="h-screen text-black" style={{ backgroundColor: '#0A0D34' }}>
       <img src="https://i.ibb.co/WDSHdKy/background-R-M.png" alt="" />
-      {locationInfo && <Location {...locationInfo} />}
+      <section>{locationInfo && <Location {...locationInfo} />}</section>
+      <section>
+        {locationInfo &&
+          locationInfo.residents.map((resident) => (
+            <ResidentInfo key={resident} urlResident={resident} />
+          ))}
+      </section>
     </div>
   );
 };

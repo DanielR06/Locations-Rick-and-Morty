@@ -1,6 +1,6 @@
 import React from 'react';
 import './Location.css';
-const Location = ({name, type, dimension, residents}) => {
+const Location = ({ name, type, dimension, residents }) => {
   return (
     <div className="container__location">
       <h1>Nombre: {name}</h1>
