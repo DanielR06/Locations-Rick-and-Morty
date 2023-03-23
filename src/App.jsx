@@ -4,41 +4,38 @@ import Location from './components/Location/Location';
 import ResidentInfo from './components/ResidentInfo/ResidentInfo';
 import { getRandomNumber } from './utils/getRandomNumber';
 const App = () => {
-  const [numberRandom, setNumberRandom] = useState(null);
-  const [location, setLocation] = useState(null);
-
+  // useStage de el Numero random que va a la Url, la informacion la localizacion obtenida para la api
+  const [locationInfo, setLocationInfo] = useState(null);
+  const [residentInfo, setResidentInfo] = useState(null)
+  //url base de la api Rick and Morty
   const baseUrl = `https://rickandmortyapi.com/api/`;
 
-  const getLocation = async () => {
+  const getLocationRandom = () => getRandomNumber(1, 126);
+
+  const loadLocationInfo = async () => {
     try {
-      const res = await axios.get(`${baseUrl}location/${numberRandom}`);
-      setLocation(res.data);
+      const res = await axios.get(`${baseUrl}location/${getLocationRandom()}`);
+      setLocationInfo(res.data);
     } catch (error) {
       console.log(error.message);
     }
   };
-  useEffect(() => {
-    setNumberRandom(getRandomNumber(1, 126));
-  },[]);
-
-  useEffect(() => {
-    if (numberRandom !== null) {
-      getLocation();
+  const getResident = async (urlCharacter) => {
+    try {
+      const res = await axios.get(urlCharacter);
+      setResidentInfo(res.data);
+    } catch (error) {
+      console.log(error);
     }
-  }, [numberRandom])
-  const locationName = location?.name;
-  const locationType = location?.type;
-  const locationDimension = location?.dimension;
-  const locationResidentsArray = location?.residents;
-  const locationResidents = locationResidentsArray?.length;
-  return (
-    <div className="h-screen text-white" style={{backgroundColor: '#0A0D34' }}>
-      <img src="https://i.ibb.co/WDSHdKy/background-R-M.png" alt="" />
-      <Location name={locationName} type={locationType} dimension={locationDimension} residents={locationResidents}/>
+  };
+  useEffect(() => {
+    loadLocationInfo();
+  }, []);
 
-      {locationResidentsArray.map((resident) => (
-              <ResidentInfo key={}/>
-            ))}
+  return (
+    <div className="h-screen text-white" style={{ backgroundColor: '#0A0D34' }}>
+      <img src="https://i.ibb.co/WDSHdKy/background-R-M.png" alt="" />
+      {locationInfo && <Location { ...locationInfo } />}
     </div>
   );
 };

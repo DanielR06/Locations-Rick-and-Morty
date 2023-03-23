@@ -1,16 +1,16 @@
-import React from 'react'
-import './Location.css'
+import React from 'react';
+import './Location.css';
 const Location = ({name, type, dimension, residents}) => {
   return (
-    <div className='container__location'>
+    <div className="container__location">
       <h1>Nombre: {name}</h1>
-      <div className='subcontainer__locations'>
+      <div className="subcontainer__locations">
         <p>Tipo: {type}</p>
         <p>Dimension: {dimension}</p>
-        <p>Poblacion: {residents}</p>
+        <p>Poblacion: {residents.length}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Location
+export default Location;
