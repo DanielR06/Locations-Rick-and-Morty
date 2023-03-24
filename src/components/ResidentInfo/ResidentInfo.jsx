@@ -15,14 +15,16 @@ const ResidentInfo = ({ urlResident }) => {
   };
   useEffect(() => {
     loadResidentInfo();
-  }, []);
+  },[]);
 
   return (
     <div>
       {residentInfo && (
-        <div>
-          <div>
-            <p>{residentInfo.status}</p>
+        <div className="character__Card">
+          <div className="container__image">
+            <p className={`status status-${residentInfo.status.toLowerCase()}`}>
+              {residentInfo.status}
+            </p>
             <img src={residentInfo.image} alt="" />
           </div>
           <h2>{ResidentInfo.name}</h2>

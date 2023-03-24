@@ -21,10 +21,10 @@ const App = () => {
   };
   useEffect(() => {
     loadLocationInfo();
-  }, []);
+  },[]);
 
   return (
-    <div className="h-screen text-black" style={{ backgroundColor: '#0A0D34' }}>
+    <div className=" text-white w-screen h-full">
       <img src="https://i.ibb.co/WDSHdKy/background-R-M.png" alt="" />
       <section>{locationInfo && <Location {...locationInfo} />}</section>
       <section>
