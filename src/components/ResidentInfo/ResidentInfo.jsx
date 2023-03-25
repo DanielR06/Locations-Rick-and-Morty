@@ -18,7 +18,7 @@ const ResidentInfo = ({ urlResident }) => {
   }, []);
 
   return (
-    <div>
+    <div className="mb-4">
       {residentInfo && (
         <div className="character__card">
           <div className="container__image">
@@ -27,7 +27,7 @@ const ResidentInfo = ({ urlResident }) => {
             </p>
             <img src={residentInfo.image} alt="" />
           </div>
-          <h2>{ResidentInfo.name}</h2>
+          <h2>{residentInfo.name}</h2>
           <hr />
           <h3>RAZA</h3>
           <h2>{residentInfo.species}</h2>

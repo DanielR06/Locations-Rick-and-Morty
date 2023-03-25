@@ -1,0 +1,23 @@
+.App{
+    color:white;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    margin:10px auto ;
+    height: 30px;
+}
+.input__text{
+    text-align:center;
+    width:80%;
+    background-color: #080b29;
+}
+.btn_submit{
+    width: 10%;
+    overflow: hidden;
+    background-color:#121544  !important ;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}

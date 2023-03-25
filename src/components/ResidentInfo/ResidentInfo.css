@@ -7,6 +7,7 @@
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+  background-color: #0f134d;
 }
 .container__image {
     position: relative;
