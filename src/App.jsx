@@ -21,13 +21,14 @@ const App = () => {
   };
   useEffect(() => {
     loadLocationInfo();
-  },[]);
+  }, 
+  []);
 
   return (
     <div className=" text-white w-screen h-full">
       <img src="https://i.ibb.co/WDSHdKy/background-R-M.png" alt="" />
       <section>{locationInfo && <Location {...locationInfo} />}</section>
-      <section>
+      <section className="flex flex-wrap gap-10 justify-center mx-4">
         {locationInfo &&
           locationInfo.residents.map((resident) => (
             <ResidentInfo key={resident} urlResident={resident} />
