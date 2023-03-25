@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import Location from './components/Location/Location';
 import ResidentInfo from './components/ResidentInfo/ResidentInfo';
+import Footer from './components/Footer';
 import { getRandomNumber } from './utils/getRandomNumber';
 const App = () => {
   // useStage de el Numero random que va a la Url, la informacion la localizacion obtenida para la api
@@ -75,11 +76,20 @@ const App = () => {
             <ResidentInfo key={resident} urlResident={resident} />
           ))}
         {locationInfo && locationInfo.residents.length === 0 && (
-          <p style={{ color: 'gray', fontSize: '0.8rem', marginTop: '5px' }}>
+          <p
+            style={{
+              color: 'gray',
+              fontSize: '1rem',
+              height: '150px',
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
             No hay habitantes en esta ubicación.
           </p>
         )}
       </section>
+      <Footer />
     </div>
   );
 };
