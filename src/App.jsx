@@ -25,7 +25,7 @@ const App = () => {
   };
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
-    if (/^\d*$/.test(inputValue) && inputValue >= 1 && inputValue <= 126) {
+    if (/^\d{0,3}$/.test(inputValue)) {
       setInputValue(inputValue);
       setIsInputValid(true);
     } else {
@@ -45,6 +45,7 @@ const App = () => {
   return (
     <div className="App">
       <img src="https://i.ibb.co/WDSHdKy/background-R-M.png" alt="" />
+      <h1 className="text-center text-6xl m-4 colo">Wiki Rick and Morty</h1>
       <form className="form" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -52,10 +53,9 @@ const App = () => {
           className="input__text"
           value={inputValue}
           onChange={handleInputChange}
+          required
         />
-        <button type="submit" className="btn_submit" disabled={!isInputValid}>
-          Buscar
-        </button>
+        <input type="submit" value="Search" className='btn_submit'></input>
       </form>
       {!isInputValid && (
         <p
